@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+   <script>
+       var menuItems = ["COOKWARE", "COOKS' TOOLS", "CUTLEY", "BAKEWARE", "FOOD", "TABLETOP & BAR", "HOMEKEEPING","SALE"];
+       var menuBar = {
+
+           getMenuTitles:function(){
+               return menuItems
+           },
+           setMenuCategories: function(menuBar){
+               if(!menuBar){
+                   return false;
+               }
+               menuTitles = this.getMenuTitles();
+               mb = document.querySelector(menuBar)
+               for(var i =0; i < menuItems.length; i++){
+                   mb.appendChild(this.buildMenuBoxes(menuItems[i]));
+               }
+           },
+           buildMenuBoxes: function(name){
+               var menu = util.addLI(name)
+               menu.addEventListener("click",function(e){
+                   menuBar.clearBreadcrumbMenu();
+                   var link =  e.target;
+                   console.log(link.innerText);
+                   menuBar.setBreadcrumbMenuLinks(link.innerText)
+               })
+               return menu;
+           },
+           renderMenuCategoryItemPullDown:function(){
+
+           },
+           populateCategoryItems: function(){
+
+           },
+           setBreadcrumbMenuLinks: function(linkName){
+                if(!linkName){
+                    return false;
+                }
+                var bc = document.querySelector('.breadcrumb-menu');
+                var capitalizeLink = linkName.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+                var link = this.buildBreadcrumbLink(capitalizeLink);
+                var arrow = this.createBreadcrumbArrow();
+                bc.appendChild(link);
+                bc.appendChild(arrow);
+           },
+           buildBreadcrumbLink:function(name){
+              breadcrumb = util.addLI(name) ;
+              breadcrumb.addEventListener("click",function(e){
+                   var link =  e.target;
+                   console.log(link.innerText);
+               })
+              return breadcrumb;
+           },
+           clearBreadcrumbMenu: function() {
+               var bc = document.querySelector('.breadcrumb-menu');
+               var breadcrumbLength = bc.children.length;
+               for(var i=breadcrumbLength-1; i > 1 ; i--){
+                   bc.removeChild(bc.children[i]);
+               }
+           },
+           createBreadcrumbArrow:function() {
+               breadcrumbArrow = util.addLI(" > ") ;
+               breadcrumbArrow.className = 'breadcrumb-menu-arrow';
+               return breadcrumbArrow;
+           }
+       }
+
+       var util = {
+           addLI: function(name){
+               var node = document.createElement('LI');
+               var textNode = document.createTextNode(name);
+               node.appendChild(textNode);
+               return node;
+           }
+       }
+
+
+   </script>
+</head>
+<body onload="menuBar.setMenuCategories('.menu')">
+    <header>
+        <img class="logo" src="assets/logo.png">
+    </header>
+    <nav>
+        <ul class="menu"></ul>
+    </nav>
+    <ul class="breadcrumb-menu">
+        <li> Home </li>
+        <li class="breadcrumb-menu-arrow"> > </li>
+    </ul>
+</body>
+</html>
