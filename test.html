@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="main.css">
    <script>
@@ -45,8 +45,9 @@
                 var capitalizeLink = linkName.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
                 var link = this.buildBreadcrumbLink(capitalizeLink);
                 var arrow = this.createBreadcrumbArrow();
-                bc.appendChild(link);
                 bc.appendChild(arrow);
+                bc.appendChild(link);
+
            },
            buildBreadcrumbLink:function(name){
               breadcrumb = util.addLI(name) ;
@@ -59,7 +60,7 @@
            clearBreadcrumbMenu: function() {
                var bc = document.querySelector('.breadcrumb-menu');
                var breadcrumbLength = bc.children.length;
-               for(var i=breadcrumbLength-1; i > 1 ; i--){
+               for(var i=breadcrumbLength -1; i > 0 ; i--){
                    bc.removeChild(bc.children[i]);
                }
            },
@@ -91,7 +92,40 @@
     </nav>
     <ul class="breadcrumb-menu">
         <li> Home </li>
-        <li class="breadcrumb-menu-arrow"> > </li>
     </ul>
+    <section class="clearfix">
+        <!--Primary Article -->
+        <article class="primary">
+            <img src="assets/product-large-a.jpg" alt="">
+            <div class="description">
+             <h3>William Sonoma Classic Apron</h3>
+            <p>Paragraph (p) - Collaboratively administrate.
+            Efficiently unleash cross-media information without..
+            Completely synergize resource sucking relationships via
+                premier niche markets. Professionally cultivate one-toone...</p>
+                <ul>
+                    <li>Durable 100% cotton construction</li>
+                    <li> Adjustable neckband ensures a good fit</li>
+                    <li>MAachine-wash</li>
+                </ul>
+                <h3>$19.95</h3>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+                <button>ADD To CART</button>
+            </div>
+            <div class="gallery">
+                <img src="assets/product-small-a.jpg">
+                <img src="assets/product-small-b.jpg">
+                <img src="assets/product-small-c.jpg">
+                <img src="assets/product-small-d.jpg">
+            </div>
+
+
+
+
+        </article>
+    </section>
 </body>
 </html>

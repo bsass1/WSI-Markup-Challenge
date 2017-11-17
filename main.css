@@ -25,6 +25,11 @@
 
 /* Menu Classes */
 
+nav ul li {
+    list-style: none;
+    overflow: hidden;
+}
+
 .button {
     border: 0.1em solid;
     border-radius: 0.3em;
@@ -48,16 +53,17 @@
 
 .menu {
     margin-bottom: 1em;
-    height: 25px;
+    height: 2em;
     background-color: black;
     margin-top: 1em;
     color: white;
-    padding-top: 10px;
+    padding-top: 0.5em;
+
 }
 
 .breadcrumb-menu li{
     display: inline;
-    margin-right: 10px;
+    margin-right: 0.5em;
     color: #656161;
 }
 
@@ -67,4 +73,65 @@
 
 .breadcrumb-menu-arrow {
     cursor: default !important;
+}
+
+.primary {
+    padding-top:0;
+}
+
+article img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    display: inline;
+    margin: 0 auto;
+}
+
+.description{
+    width: 25em;
+    float: right;
+}
+.gallery{
+    display: block;
+    width: 40em;
+}
+.gallery img{
+    width: 7em;
+    height: auto;
+}
+
+.gallery img:hover{
+  border: solid;
+    border-color: black;
+}
+
+@media only screen and (max-width: 855px){
+
+    .menu{
+        height: inherit;
+    }
+    .menu li{
+        display: block;
+    }
+    .primary img {
+        width: 60%;
+        height: auto;
+        max-width: 200px;
+        display: inline;
+        margin: 0 auto;
+    }
+    .gallery{
+        display: block;
+        width: 20em;
+    }
+    .gallery img{
+        width: 3em;
+        height: auto;
+    }
+    .gallery img:hover{
+        border: solid;
+        border-color: black;
+    }
+
+
 }
