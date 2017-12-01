@@ -4,82 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="productImage.js"></script>
+    <script src="menuBar.js"></script>
    <script>
-       var menuItems = ["COOKWARE", "COOKS' TOOLS", "CUTLEY", "BAKEWARE", "FOOD", "TABLETOP & BAR", "HOMEKEEPING","SALE"];
-       var menuBar = {
-
-           getMenuTitles:function(){
-               return menuItems
-           },
-           setMenuCategories: function(menuBar){
-               if(!menuBar){
-                   return false;
-               }
-               menuTitles = this.getMenuTitles();
-               mb = document.querySelector(menuBar)
-               for(var i =0; i < menuItems.length; i++){
-                   mb.appendChild(this.buildMenuBoxes(menuItems[i]));
-               }
-           },
-           buildMenuBoxes: function(name){
-               var menu = util.addLI(name)
-               menu.addEventListener("click",function(e){
-                   menuBar.clearBreadcrumbMenu();
-                   var link =  e.target;
-                   console.log(link.innerText);
-                   menuBar.setBreadcrumbMenuLinks(link.innerText)
-               })
-               return menu;
-           },
-           renderMenuCategoryItemPullDown:function(){
-
-           },
-           populateCategoryItems: function(){
-
-           },
-           setBreadcrumbMenuLinks: function(linkName){
-                if(!linkName){
-                    return false;
-                }
-                var bc = document.querySelector('.breadcrumb-menu');
-                var capitalizeLink = linkName.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-                var link = this.buildBreadcrumbLink(capitalizeLink);
-                var arrow = this.createBreadcrumbArrow();
-                bc.appendChild(arrow);
-                bc.appendChild(link);
-
-           },
-           buildBreadcrumbLink:function(name){
-              breadcrumb = util.addLI(name) ;
-              breadcrumb.addEventListener("click",function(e){
-                   var link =  e.target;
-                   console.log(link.innerText);
-               })
-              return breadcrumb;
-           },
-           clearBreadcrumbMenu: function() {
-               var bc = document.querySelector('.breadcrumb-menu');
-               var breadcrumbLength = bc.children.length;
-               for(var i=breadcrumbLength -1; i > 0 ; i--){
-                   bc.removeChild(bc.children[i]);
-               }
-           },
-           createBreadcrumbArrow:function() {
-               breadcrumbArrow = util.addLI(" > ") ;
-               breadcrumbArrow.className = 'breadcrumb-menu-arrow';
-               return breadcrumbArrow;
-           }
-       }
-
-       var util = {
-           addLI: function(name){
-               var node = document.createElement('LI');
-               var textNode = document.createTextNode(name);
-               node.appendChild(textNode);
-               return node;
-           }
-       }
-
 
    </script>
 </head>
@@ -96,7 +23,7 @@
     <section class="clearfix">
         <!--Primary Article -->
         <article class="primary">
-            <img src="assets/product-large-a.jpg" alt="">
+            <img class="bigImage"  src="assets/product-large-a.jpg" alt="">
             <div class="description">
              <h3>William Sonoma Classic Apron</h3>
             <p>Paragraph (p) - Collaboratively administrate.
@@ -109,22 +36,27 @@
                     <li>MAachine-wash</li>
                 </ul>
                 <h3>$19.95</h3>
+                <label>QTY:</label>
                 <select>
                     <option>1</option>
                     <option>2</option>
                 </select>
-                <button>ADD To CART</button>
+                <button>ADD TO CART</button>
+                <div class="expandedMenu">
+                    <div class="expand">
+                        Expanded
+                    </div>
+                    <div class="collapse">
+                        Collapased
+                    </div >
+                    <div class="collapse">
+                        Collapased
+                    </div>
+                </div>
             </div>
             <div class="gallery">
-                <img src="assets/product-small-a.jpg">
-                <img src="assets/product-small-b.jpg">
-                <img src="assets/product-small-c.jpg">
-                <img src="assets/product-small-d.jpg">
+                <ul></ul>
             </div>
-
-
-
-
         </article>
     </section>
 </body>

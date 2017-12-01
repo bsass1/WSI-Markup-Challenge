@@ -83,7 +83,7 @@ article img {
     width: 100%;
     height: auto;
     max-width: 400px;
-    display: inline;
+    display: inline-flex;
     margin: 0 auto;
 }
 
@@ -94,15 +94,54 @@ article img {
 .gallery{
     display: block;
     width: 40em;
+
 }
+.gallery ul {
+    list-style-type: none;
+    display: inline-flex;
+}
+
 .gallery img{
     width: 7em;
-    height: auto;
+    height: 7em;
 }
 
 .gallery img:hover{
   border: solid;
     border-color: black;
+}
+
+button {
+    background-color: red;
+    color: white;
+    width: 15em;
+    height: 2.5em;
+}
+select{
+    display: block;
+    margin-bottom: 2em;
+}
+label{
+    float: left;
+    margin-right: 1em;
+}
+
+.expandedMenu{
+    margin-top: 2em;
+    height: 10em;
+    border-top-color: black;
+    border-top-style: solid;
+    border-bottom-color: black;
+    border-bottom-style: solid;
+}
+
+.expand{
+
+}
+
+
+.collapse{
+
 }
 
 @media only screen and (max-width: 855px){
@@ -118,13 +157,13 @@ article img {
         height: auto;
         max-width: 200px;
         display: inline;
-        margin: 0 auto;
+        margin-left: 1em;
     }
     .gallery{
         display: block;
         width: 20em;
     }
-    .gallery img{
+    .gallery li img{
         width: 3em;
         height: auto;
     }
@@ -132,6 +171,12 @@ article img {
         border: solid;
         border-color: black;
     }
-
+    article img {
+        margin-left: 2em;
+    }
+    .description {
+        width: 22em;
+        float: right;
+    }
 
 }
