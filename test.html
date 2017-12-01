@@ -6,11 +6,19 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="productImage.js"></script>
     <script src="menuBar.js"></script>
+    <script src="expandBar.js"></script>
+    <script src="modal.js"></script>
    <script>
+       function start(){
+           menuBar.setMenuCategories('.menu');
+           productImage.populateGallery();
+           expandBar.setExpandButtons();
+           modal.setAddToCartButton();
+       }
 
    </script>
 </head>
-<body onload="menuBar.setMenuCategories('.menu')">
+<body onload="start()">
     <header>
         <img class="logo" src="assets/logo.png">
     </header>
@@ -41,16 +49,21 @@
                     <option>1</option>
                     <option>2</option>
                 </select>
-                <button>ADD TO CART</button>
+                <button class="addToCart">ADD TO CART</button>
                 <div class="expandedMenu">
-                    <div class="expand">
-                        Expanded
+                    <div class="collapse">
+
+                        <img src="assets/arrow-collapsed.png" data="collapsed">
+                        <span>Extend</span>
+                        <p> Expanded </p>
                     </div>
                     <div class="collapse">
-                        Collapased
+                        <img src="assets/arrow-collapsed.png" data="collapsed">
+                        <p> Expanded </p>
                     </div >
                     <div class="collapse">
-                        Collapased
+                        <img src="assets/arrow-collapsed.png" data="collapsed">
+                        <p> Expanded </p>
                     </div>
                 </div>
             </div>
@@ -59,5 +72,13 @@
             </div>
         </article>
     </section>
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
+        </div>
+
+    </div>
 </body>
 </html>

@@ -13,7 +13,7 @@ var menuBar = {
         for(var i =0; i < menuTitles.length; i++){
             mb.appendChild(this.displayMenuItems(menuTitles[i]));
         }
-        productImage.populateGallery();
+
     },
     addMenuList: function(name){
         var node = document.createElement('LI');
