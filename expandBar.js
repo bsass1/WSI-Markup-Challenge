@@ -1,8 +1,8 @@
-expandBar = {
-    setExpandButtons:function(){
+var expandBar = (function() {
+    setExpandButtons = function(){
         var box = document.querySelector('.expandedMenu');
         box.addEventListener('click',function(e){
-            expandBar.collapseBox(box)
+            collapseBox(box);
             var toggle = e.target;
             if(toggle.attributes['data'].value == 'expanded'){
                 toggle.src = 'assets/arrow-collapsed.png'
@@ -14,8 +14,8 @@ expandBar = {
                 toggle.parentNode.className = 'expand';
             }
         });
-    },
-    collapseBox: function(box) {
+    };
+    var collapseBox = function(box) {
         var boxes = box.children;
         for( b in boxes){
             if(boxes[b].className != 'collapse' && boxes.hasOwnProperty(b)){
@@ -24,4 +24,7 @@ expandBar = {
             }
         }
     }
-}
+    return{
+        'setExpandButtons':setExpandButtons
+    }
+})();

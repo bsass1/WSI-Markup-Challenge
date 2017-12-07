@@ -5,43 +5,39 @@
     margin-right: auto;
     display: block;
 }
-
 /* Positioning Classes */
-
 .pull-left {
     float: left !important;
 }
-
 .pull-right {
     float: right !important;
 }
-
 .center {
     position: relative;
     bottom: 0px;
     text-align:center ;
 }
-
+select {
+    display: block;
+    margin-bottom: 2em;
+    width: 5em;
+    height: 3em;
+}
 /* Menu Classes */
-
 nav ul li {
     list-style: none;
     overflow: hidden;
 }
-
 .menu li {
     display: inline;
     padding-right: 0.8em;
     text-decoration: none;
     color: white;
 }
-
-
 .menu li:hover {
     color: lightcyan;
     cursor: pointer;
 }
-
 .menu {
     margin-bottom: 0.8em;
     height: 2em;
@@ -51,25 +47,20 @@ nav ul li {
     padding-top: 0.5em;
 
 }
-
 .breadcrumb-menu li{
     display: inline;
     margin-right: 0.5em;
     color: #656161;
 }
-
 .breadcrumb-menu li:hover {
     cursor: pointer;
 }
-
 .breadcrumb-menu-arrow {
     cursor: default !important;
 }
-
 .primary {
     padding-top:0;
 }
-
 article img {
     width: 100%;
     height: auto;
@@ -77,7 +68,6 @@ article img {
     display: inline-flex;
     margin: 0 auto;
 }
-
 .description{
     width: 25em;
     float: right;
@@ -85,24 +75,20 @@ article img {
 .gallery{
     display: block;
     width: 40em;
-
 }
 .gallery ul {
     list-style-type: none;
     display: inline-flex;
 }
-
 .gallery img{
     width: 7em;
     height: 7em;
 }
-
 .gallery img:hover{
     border: solid;
     border-color: black;
     cursor: pointer;
 }
-
 .addToCart {
     background-color: red;
     color: white;
@@ -122,27 +108,24 @@ label{
 }
 .expandedMenu{
     margin-top: 2em;
-    height: 10em;
-    border-top-color: black;
-    border-top-style: solid;
-    border-bottom-color: black;
-    border-bottom-style: solid;
+    height: auto;
+
+}
+.expandedMenu:nth-last-child(1){
+    border-bottom-style: groove;
 }
 
 .expand{
     height: 4em;
 }
-
 .expand p{
     display: block;
     visibility: visible;
-
 }
 .collapse{
     height: 2.5em;
     border-top-style: groove;
 }
-
 .collapse p{
     display: none;
     visibility: hidden;
@@ -151,35 +134,32 @@ label{
     width: 1.5em;
     height: 1.5em;
 }
-
 .expand img {
     width: 1.5em;
     height: 1.5em;
 }
-
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
 }
-
-/* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 40%;
 }
-
-/* The Close Button */
+.modalImg{
+    height: 15em;
+}
 .close {
     color: #aaa;
     float: right;
@@ -195,7 +175,6 @@ label{
 }
 
 @media only screen and (max-width: 855px){
-
     .menu{
         height: inherit;
     }
@@ -237,11 +216,9 @@ label{
         border-bottom-color: black;
         border-bottom-style: solid;
     }
-
     .expand{
         height: 4em;
     }
-
     .expand p{
         display: block;
         visibility: visible;
@@ -250,7 +227,6 @@ label{
         height: 2em;
         border-top-style: groove;
     }
-
     .collapse p{
         display: none;
         visibility: hidden;
@@ -259,9 +235,11 @@ label{
         width: 0.8em;
         height: 0.8em;
     }
-
     .expand img {
         width: 0.8em;
         height: 0.8em;
+    }
+    .modalImg{
+        height: 12em;
     }
 }

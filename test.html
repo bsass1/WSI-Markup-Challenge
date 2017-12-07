@@ -4,19 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="main.css">
-    <script src="productImage.js"></script>
-    <script src="menuBar.js"></script>
-    <script src="expandBar.js"></script>
-    <script src="modal.js"></script>
-   <script>
-       function start(){
-           menuBar.setMenuCategories('.menu');
-           productImage.populateGallery();
-           expandBar.setExpandButtons();
-           modal.setAddToCartButton();
-       }
-
-   </script>
 </head>
 <body onload="start()">
     <header>
@@ -54,7 +41,6 @@
                     <div class="collapse">
 
                         <img src="assets/arrow-collapsed.png" data="collapsed">
-                        <span>Extend</span>
                         <p> Expanded </p>
                     </div>
                     <div class="collapse">
@@ -76,9 +62,24 @@
         <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Some text in the Modal..</p>
+            <img class="modalImg" src="">
+            <h3>William Sonoma Classic Apron</h3>
         </div>
 
     </div>
+    <script src="productImage.js"></script>
+    <script src="menuBar.js"></script>
+    <script src="expandBar.js"></script>
+    <script src="modal.js"></script>
+    <script>
+        function start(){
+            menuBar.setMenuCategories('.menu');
+            productImage.preloadImages();
+            productImage.populateGallery();
+            expandBar.setExpandButtons();
+            modalFeature.setAddToCartButton();
+        }
+
+    </script>
 </body>
 </html>
