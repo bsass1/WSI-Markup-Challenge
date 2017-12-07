@@ -1,9 +1,9 @@
 var menuBar = (function(){
-    getMenuTitles = function(){
+    var getMenuTitles = function(){
         menuItems = ["HOME","COOKWARE", "COOKS' TOOLS", "CUTLEY", "BAKEWARE", "FOOD", "TABLETOP & BAR", "HOMEKEEPING","SALE"];
         return menuItems;
     };
-    setMenuCategories =  function(menuBar){
+    var setMenuCategories =  function(menuBar){
         if(!menuBar){
             return false;
         }
@@ -13,13 +13,13 @@ var menuBar = (function(){
             mb.appendChild(displayMenuItems(menuTitles[i]));
         }
     };
-    addMenuList = function(name){
+    var addMenuList = function(name){
         var node = document.createElement('LI');
         var textNode = document.createTextNode(name);
         node.appendChild(textNode);
         return node;
     };
-    displayMenuItems = function(name){
+    var displayMenuItems = function(name){
         var menu = addMenuList(name)
         menu.addEventListener("click",function(e){
             clearBreadcrumbMenu();
@@ -29,7 +29,7 @@ var menuBar = (function(){
         });
         return menu;
     };
-    setBreadcrumbMenuLinks =  function(linkName){
+    var setBreadcrumbMenuLinks =  function(linkName){
         if(!linkName){
             return false;
         }
@@ -41,21 +41,21 @@ var menuBar = (function(){
         bc.appendChild(link);
 
     };
-    buildBreadcrumbLink = function(name){
+    var buildBreadcrumbLink = function(name){
         breadcrumb = addMenuList(name) ;
         breadcrumb.addEventListener("click",function(e){
             var link =  e.target;
         })
         return breadcrumb;
     };
-    clearBreadcrumbMenu =  function() {
+    var clearBreadcrumbMenu =  function() {
         var bc = document.querySelector('.breadcrumb-menu');
         var breadcrumbLength = bc.children.length;
         for(var i=breadcrumbLength -1; i > 0 ; i--){
             bc.removeChild(bc.children[i]);
         }
     };
-    createBreadcrumbArrow = function() {
+    var createBreadcrumbArrow = function() {
         breadcrumbArrow = addMenuList(" > ") ;
         breadcrumbArrow.className = 'breadcrumb-menu-arrow';
         return breadcrumbArrow;
